@@ -1,24 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+
 import './App.css';
 
+import { ApolloProvider } from '@apollo/client';
+import { useQuery } from '@apollo/client';
+import ArtistCard from './components/ArtistCard';
+import client from './apolloclient';
+import {queries} from './queries';
+
+
+function ArtistsList({ query }) {
+  const { loading, error, data } = useQuery(queries.ARTISTS, {
+    variables: { query },
+  });
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+  return data?.search?.artists?.nodes.map(artist => {
+    return <ArtistCard name={artist?.name} />
+  })
+}
+
 function App() {
+  const [artistquery, setArtistQuery] = useState('');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ApolloProvider client={client}>
+        <h1> Search Artists by Name </h1>
+        <input type="text" placeholder="Search Artists..." onChange={e => setArtistQuery(e.target.value)} />
+        <div style={{ marginTop: '2rem' }}>
+          {artistquery.length < 3 ? (<div> Looking for artists...</div>) : <ArtistsList query={artistquery} />}
+        </div>
+      </ApolloProvider>
     </div>
   );
 }
