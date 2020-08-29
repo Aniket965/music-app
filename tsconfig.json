@@ -21,6 +21,6 @@
     "noImplicitAny":false,
   },
   "include": [
-    "src"
+    "src", "postcss.config.js"
   ]
 }
