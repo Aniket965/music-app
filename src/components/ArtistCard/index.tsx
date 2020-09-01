@@ -1,9 +1,12 @@
 import React from 'react';
 import './index.css';
 import flag from 'country-code-emoji';
+import {
 
+  Link,
+} from "react-router-dom";
 
-function ArtistCard({name,imageUrl,country,id}) {
+function ArtistCard({name,imageUrl,country,id,mbid}) {
   return (
     <div className="my-3 px-3 w-full  sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 w-64">
       <div className="relative">
@@ -12,8 +15,9 @@ function ArtistCard({name,imageUrl,country,id}) {
          />
       </div>
       <div className="text-center" >
-        <h2 className="text-xl font-bold cursor-pointer hover:underline">
-           {country? `${flag(country)} ${name}` : `🌎 ${name} `}</h2>
+      <Link to={`/artists/${mbid}`}> <h2 className="text-xl font-bold cursor-pointer hover:underline">
+           {country? `${flag(country)} ${name}` : `🌎 ${name} `}</h2></Link>
+       
       </div>
        
     </div>
