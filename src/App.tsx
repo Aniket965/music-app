@@ -18,7 +18,8 @@ function ArtistsList({ query }) {
   return <div className="flex flex-wrap -mx-3 overflow-hidden">
     {data?.search?.artists?.nodes.map(artist => {
     return <ArtistCard name={artist?.name} 
-    imageUrl={artist?.mediaWikiImages[0]?.url} 
+    imageUrl={artist?.mediaWikiImages[0]?.url}
+    id={artist?.id} 
     key={artist?.id}
     country={artist?.country}
     />

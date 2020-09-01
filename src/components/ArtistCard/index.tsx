@@ -3,12 +3,12 @@ import './index.css';
 import flag from 'country-code-emoji';
 
 
-function ArtistCard({name,imageUrl,country}) {
+function ArtistCard({name,imageUrl,country,id}) {
   return (
     <div className="my-3 px-3 w-full  sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 w-64">
-      <div>
+      <div className="relative">
       <div className="h-56 w-56 rounded-full mx-auto md:mx-0 md:mr-6 shadow-2xl ios-card"
-      style={{backgroundImage:`url(${imageUrl})`}}
+         style={{backgroundImage: imageUrl ? `url(${imageUrl})` : `url(https://picsum.photos/200?blur=100v=${id})`}}
          />
       </div>
       <div className="text-center" >
