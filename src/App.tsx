@@ -15,13 +15,19 @@ function ArtistsList({ query }) {
   });
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
-  return data?.search?.artists?.nodes.map(artist => {
-    return <ArtistCard name={artist?.name} />
-  })
+  return <div className="flex flex-wrap -mx-3 overflow-hidden">
+    {data?.search?.artists?.nodes.map(artist => {
+    return <ArtistCard name={artist?.name} 
+    imageUrl={artist?.mediaWikiImages[0]?.url} 
+    key={artist?.id}
+    country={artist?.country}
+    />
+  })}
+  </div>
 }
 
 function App() {
-  const [artistquery, setArtistQuery] = useState('');
+  const [artistquery, setArtistQuery] = useState('Nirvana');
 
   return (
     <div className="App flex justify-center">

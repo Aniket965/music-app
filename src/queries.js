@@ -6,7 +6,11 @@ query getArtists($query: String!) {
       artists(query: $query) {
         nodes {
           id
-          name
+          name,
+          country,
+          mediaWikiImages {
+            url
+          }  
         }
       }
     }
