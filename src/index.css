@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.ios-card {
+  position: relative;
+display: inline-block;
+background: #fff;;	
+  background-size: cover;
+  margin-bottom: 1rem;
+background-position: center center;
+}
+.ios-card:after {
+      position: absolute;
+      content: '';
+      bottom: -.25em;
+      left: 1%;
+      width: inherit;
+      border-radius: inherit;
+      height: inherit;	
+      background: inherit;
+      filter: blur(0.5em);
+      z-index: -1;
+
+}

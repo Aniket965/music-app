@@ -19,22 +19,18 @@ query getArtists($query: String!) {
 `;
 
 const ARTIST = gql`
-query {
+query getArtist($mbid: MBID!) {
   lookup {
-    artist(mbid:"9d7cac94-79ac-48e9-8be9-dcdcbb00e3df") {
+    artist(mbid:$mbid) {
+      mbid
       name,
       country,
       type,
       gender,
-      fanArt {
-        banners {
-          url
-        }
-        thumbnails {
-          url
-        }
+      mediaWikiImages {
+        url
       }
-        releases {
+        releases(first:5) {
                     totalCount,
                     nodes {
                       
