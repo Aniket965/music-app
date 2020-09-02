@@ -47,6 +47,7 @@ export interface Releases {
 }
 
 export interface Artist {
+    mbid:string;
     name: string;
     country: string;
     type: string;

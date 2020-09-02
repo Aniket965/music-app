@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../styles.css';
 import { useQuery } from '@apollo/client';
-import ArtistCard from '../components/ArtistCard';
+
 import { ArtistLookup } from '../types'
 import { queries } from '../queries';
 import flag from 'country-code-emoji';
 import { getName } from 'country-list';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
     Link,
     useParams
 } from "react-router-dom";
+import ReleaseCard from '../components/ReleaseCard';
 
 
 
@@ -34,7 +32,7 @@ function Artist() {
 
 
     if (loading) return (
-        <div className="w-full" >
+        <div className="w-full ml-4" >
             <div className="bg-purple-900 p-2 w-full text-white text-left text-md font-bold" >
                 <Link to="/" ><span className="cursor-pointer">{`⬅ Home`}</span></Link>
             </div>
@@ -42,7 +40,7 @@ function Artist() {
         </div>
     );
     if (error) return (
-        <div className="w-full" >
+        <div className="w-full ml-4" >
             <div className="bg-purple-900 p-2 w-full text-white text-left text-md font-bold" >
                 <Link to="/" ><span className="cursor-pointer">{`⬅ Home`}</span></Link>
             </div>
@@ -83,7 +81,16 @@ function Artist() {
             </div>
             <div className="my-32" >
                 <h2 className="text-3xl text-left pl-12 font-bold" >{tc > 0 ? "Some of the Releases" : "No Releases Found :("}</h2>
-                {data?.lookup.artist.releases.nodes.map(release => <div className="pl-12 text-left" >{release.title}</div>)}
+                <div className="flex flex-wrap -mx-3 overflow-hidden">
+
+                {data?.lookup.artist.releases.nodes
+                .map(release => <ReleaseCard 
+                title={release.title} 
+                imageUrl={release.coverArtArchive.front}
+                 id={release.id} />)}
+
+                </div>
+               
             </div>
         </div>
     );

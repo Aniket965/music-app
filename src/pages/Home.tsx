@@ -4,12 +4,6 @@ import { useQuery } from '@apollo/client';
 import ArtistCard from '../components/ArtistCard';
 import { queries } from '../queries';
 
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
 
 function ArtistsList({ query }) {
     const { loading, error, data } = useQuery(queries.ARTISTS, {
@@ -33,6 +27,7 @@ function ArtistsList({ query }) {
 function Home() {
     const [artistquery, setArtistQuery] = useState('Nirvana');
     return (
+        <div className="w-full flex justify-center">
         <div className="container">
             <div>
                 <h1 className="text-6xl text-purple-600"> Search Artists by Name </h1>
@@ -43,6 +38,7 @@ function Home() {
             <div style={{ marginTop: '2rem' }}  >
                 {artistquery.length < 3 ? (<div> Looking for artists...</div>) : <ArtistsList query={artistquery} />}
             </div>
+        </div>
         </div>
     );
 }
