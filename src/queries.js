@@ -1,9 +1,9 @@
 import { gql } from '@apollo/client';
 
 const ARTISTS = gql`
-query getArtists($query: String!) {
+query getArtists($query: String!, $cursor: String!) {
     search {
-      artists(query: $query) {
+      artists(query: $query,first:9,after: $cursor) {
         nodes {
           id
           mbid
@@ -12,6 +12,10 @@ query getArtists($query: String!) {
           mediaWikiImages {
             url
           }  
+        }
+        pageInfo {
+          hasNextPage
+          endCursor
         }
       }
     }
