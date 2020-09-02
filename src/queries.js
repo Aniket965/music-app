@@ -46,11 +46,8 @@ query getArtist($mbid: MBID!) {
                       coverArtArchive 
                     {
                       front,
-                      back,
                       artwork
-                      images {
-                        thumbnails {small,large}
-                      }
+                  
                     }
                     }
                   }

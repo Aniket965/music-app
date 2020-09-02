@@ -35,6 +35,7 @@ function ArtistsList({ query }) {
         pageInfoRef.current = pageInfo;
     }, [pageInfo])
     useEffect(() => {
+        setArtists([])
         loadMore({ variables: { query: debounceSearch, cursor: '' } })
     }, [debounceSearch])
 
