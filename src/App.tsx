@@ -13,12 +13,14 @@ import {
   Route
 } from "react-router-dom";
 import SideBar from './components/SideBar';
+import { ToastProvider } from 'react-toast-notifications'
 
 
 
 function App() {
   return (
     <div className="App flex relative">
+      <ToastProvider>
       <ApolloProvider client={client}>
         <StoreProvider store={store} >
           <Router>
@@ -37,6 +39,7 @@ function App() {
           </Router>
         </StoreProvider>
       </ApolloProvider>
+      </ToastProvider>
     </div>
   );
 }

@@ -12,10 +12,12 @@ import {
     useParams
 } from "react-router-dom";
 import ReleaseCard from '../components/ReleaseCard';
+import { useToasts } from 'react-toast-notifications'
 
 
 
 function Artist() {
+    const { addToast } = useToasts()
 
     let { id } = useParams();
     const { loading, error, data } = useQuery<ArtistLookup>(queries.ARTIST,
@@ -71,8 +73,21 @@ function Artist() {
                     <div className="text-center sm:text-left pl-4 font-bold">
                         <h2 className="text-3xl sm:text-3xl lg:text-6xl " >{data?.lookup.artist.name} <span className="cursor-pointer"
                             onClick={_ => {
-                                if (favlist && favlist.find(x => x.mbid === id)) removeArtist({ mbid: id })
-                                else addArtist({ name: data?.lookup.artist.name, mbid: id })
+                                if (favlist && favlist.find(x => x.mbid === id)) {
+                                    removeArtist({ mbid: id })
+                                    addToast(`Removed ${data?.lookup.artist.name} from favorites`, {
+                                        appearance: 'error',
+                                        autoDismiss: true,
+                                      })
+                                }
+                                else {addArtist({ name: data?.lookup.artist.name, mbid: id })
+                            
+                            
+                                addToast(`Added ${data?.lookup.artist.name} to favorites`, {
+                                    appearance: 'success',
+                                    autoDismiss: true,
+                                  })
+                            }
                             }}
                         > {favlist && favlist.find(x => x.mbid === id) ? "⭐️" : "☆"}</span> </h2>
                         <h2 className="text-md sm:text-lg md:text-lg" >{country ? `${flag(country)}  ${getName(country)}` : `🌎 WorldWide `}</h2>
