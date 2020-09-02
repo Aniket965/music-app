@@ -28,7 +28,7 @@ function Home() {
     const [artistquery, setArtistQuery] = useState('Nirvana');
     return (
         <div className="w-full flex justify-center">
-        <div className="container">
+        <div className="container p-6">
             <div>
                 <h1 className="text-6xl text-purple-600"> Search Artists by Name </h1>
                 <input

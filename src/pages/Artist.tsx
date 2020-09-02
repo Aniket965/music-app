@@ -53,34 +53,34 @@ function Artist() {
             <div className="bg-purple-900 p-2 w-full text-white text-left text-md font-bold" >
                 <Link to="/" ><span className="cursor-pointer">{`⬅ Home`}</span></Link>
             </div>
-            <div className="bg-purple-700 h-48 w-full text-white" >
+            <div className="bg-purple-700 h-40 sm:h-48 w-full text-white" >
                 <div
-                    className="flex pl-12 pt-4"
+                    className="flex pl-4 sm:pl-12 pt-4"
                 >
                     <div
-                        className="h-64 w-64 rounded-full ios-card"
+                        className="h-24 w-24 sm:h-64 sm:w-64 rounded-full ios-card"
                         style={{
                             backgroundImage: data?.lookup.artist?.mediaWikiImages[0]?.url ? `url(${data?.lookup.artist?.mediaWikiImages[0]?.url})` : `url(https://picsum.photos/200?blur=100v=${id})`
                         }} />
                     <div className="text-left pl-4 font-bold">
-                        <h2 className="text-6xl" >{data?.lookup.artist.name} <span className="cursor-pointer"
+                        <h2 className="text-xl sm:text-3xl lg:text-6xl " >{data?.lookup.artist.name} <span className="cursor-pointer"
                             onClick={_ => {
                                 if (favlist && favlist.find(x => x.mbid === id)) removeArtist({ mbid: id })
                                 else addArtist({ name: data?.lookup.artist.name, mbid: id })
                             }}
                         > {favlist && favlist.find(x => x.mbid === id) ? "⭐️" : "☆"}</span> </h2>
-                        <h2 className="text-lg" >{country ? `${flag(country)}  ${getName(country)}` : `🌎 WorldWide `}</h2>
+                        <h2 className="text-sm sm:text-lg md:text-lg" >{country ? `${flag(country)}  ${getName(country)}` : `🌎 WorldWide `}</h2>
 
                         {data?.lookup.artist.type === 'Person'
-                            ? <h2 className="text-lg" >{data?.lookup.artist.gender === 'Male' ? '♂ Male' : '♀ Female'}</h2> :
-                            <h2 className="text-lg" >{data?.lookup.artist.type}</h2>}
+                            ? <h2 className="text-sm sm:text-lg md:text-lg" >{data?.lookup.artist.gender === 'Male' ? '♂ Male' : '♀ Female'}</h2> :
+                            <h2 className="text-sm sm:text-lg md:text-lg" >{data?.lookup.artist.type}</h2>}
 
                     </div>
                 </div>
 
             </div>
-            <div className="my-32" >
-                <h2 className="text-3xl text-left pl-12 font-bold" >{tc > 0 ? "Some of the Releases" : "No Releases Found :("}</h2>
+            <div className="my-4 sm:my-32" >
+                <h2 className="text-center sm:text-left text-xl sm:text-3xl lg:text-3xl sm:pl-12 font-bold" >{tc > 0 ? "Some of the Releases" : "No Releases Found :("}</h2>
                 <div className="flex flex-wrap -mx-3 overflow-hidden">
 
                 {data?.lookup.artist.releases.nodes
