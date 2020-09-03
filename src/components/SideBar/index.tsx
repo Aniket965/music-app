@@ -11,8 +11,8 @@ function FavArtistList() {
   
 function SideBar() {
     return (
-        <div className="shadow h-screen w-64 top-0 hidden sticky md:block bg-white  p-5" >
-            <h2 className="text-3xl text-left font-bold mb-4" >Favorites</h2>
+        <div className="border-t-4 border-purple-700 rounded-b  shadow h-screen w-64 top-0 hidden sticky md:block bg-white  p-5" >
+            <h2 className="text-3xl text-left font-bold mb-4" ><span className="text-purple-700" >❤</span>  Favorites</h2>
             <FavArtistList />
         </div>
     );
