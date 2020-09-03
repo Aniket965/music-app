@@ -116,6 +116,7 @@ function Artist() {
 
                     {data?.lookup.artist.releases.nodes
                         .map(release => <ReleaseCard
+                            key={release.id}
                             title={release.title}
                             imageUrl={release.coverArtArchive.front}
                             id={release.id} />)}

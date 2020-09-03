@@ -8,7 +8,7 @@ function FavArtistList() {
     if(favlist && favlist.length === 0) {
         return <div className="text-left text-gray-600" >Star Your ❤ Favorites to fill the list.</div>;
     }
-    return favlist.map(artist => <div className="cursor-pointer font-bold hover:underline hover:text-purple-700 text-left">
+    return favlist.map(artist => <div key={artist.mbid}  className="cursor-pointer font-bold hover:underline hover:text-purple-700 text-left">
         <Link to={`/artists/${artist.mbid}`} >  {artist.country? `${flag(artist.country)} ${artist.name}` : `🌎 ${artist.name} `}</Link></div>);
   }
   
