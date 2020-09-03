@@ -75,7 +75,8 @@ function Artist() {
                         <div
                             className="h-48 w-48 sm:h-64 sm:w-64 rounded-full ios-card"
                             style={{
-                                backgroundImage: data?.lookup.artist?.mediaWikiImages[0]?.url ? `url(${data?.lookup.artist?.mediaWikiImages[0]?.url})` : `url(https://picsum.photos/200?blur=100v=${id})`
+                                backgroundImage: data?.lookup.artist?.mediaWikiImages[0]?.url ? `url(${data?.lookup.artist?.mediaWikiImages[0]?.url}), url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR1cCk9nO_5jl4lpD0dw-zs-dLfpHCK0SLY4w&usqp=CAU)` 
+                                : `url(https://picsum.photos/200?blur=100v=${id}),url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR1cCk9nO_5jl4lpD0dw-zs-dLfpHCK0SLY4w&usqp=CAU)`
                             }} />
                         <div className="text-center sm:text-left pl-4 font-bold">
                             <h2 className="text-3xl sm:text-3xl lg:text-6xl " >{data?.lookup.artist.name} <span className="cursor-pointer"
