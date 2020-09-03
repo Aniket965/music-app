@@ -70,6 +70,7 @@ function ArtistsList({ query }) {
         {loading && (<Loader/>)}
         {data?.search?.artists?.pageInfo.hasNextPage &&
         !loading && (<div ref={setLoadingElement} className="text-center" >Loding more...</div>)}
+        {!loading && !data?.search?.artists?.pageInfo.hasNextPage && artists.length === 0 && (<div  className="text-center" >No Result Found...</div>)  }
 
     </div>
 }
