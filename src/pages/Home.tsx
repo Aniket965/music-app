@@ -83,8 +83,8 @@ function Home() {
 
     return (
         <div className="w-full">
-               <div className="bg-black p-12 flex justify-center" >
-                        <img className="w-full sm:w-1/2" src={require('../assets/logoscfinder.png')} alt=""/>
+               <div className="bg-black p-12  flex justify-center" >
+                        <img className="h-24 sm:h-36 lg:h-48"  src={require('../assets/logoscfinder.png')} alt=""/>
                     </div>
                     <div className="w-full flex justify-center">
             <div className="container p-6">

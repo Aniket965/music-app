@@ -20,7 +20,7 @@ import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <div className="App flex relative">
+    <div className="App flex flex-col sm:flex-row  relative">
       <ToastProvider>
         <ApolloProvider client={client}>
           <StoreProvider store={store} >
