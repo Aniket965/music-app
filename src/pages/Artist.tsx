@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import ReleaseCard from '../components/ReleaseCard';
 import { useToasts } from 'react-toast-notifications'
+import Loader from '../components/Loader';
 
 
 
@@ -38,7 +39,7 @@ function Artist() {
             <div className="bg-black pl-12 p-2 w-full text-white text-left text-md font-bold" >
                 <Link to="/" ><span className="cursor-pointer">{`⬅ Home`}</span></Link>
             </div>
-            <div>Loading...</div>
+            <Loader/>
         </div>
     );
     if (error) return (
@@ -53,8 +54,8 @@ function Artist() {
 
     return (
         <div className="w-full" >
-            <div className="w-full backimg"  style={{backgroundImage:'url(https://images.unsplash.com/photo-1568059151110-949642101084?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)'}}>
-            <div className="p-2 pl-12 w-full text-white text-left text-md font-bold"
+            <div className="w-full backimg shadow"  style={{backgroundImage:'url(https://images.unsplash.com/photo-1568059151110-949642101084?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)'}}>
+            <div className="p-2 pl-12 w-full shadow text-white text-left text-md font-bold"
             style={{backdropFilter:'blur(5px)'}}
             >
                 <Link to="/" ><span className="cursor-pointer">{`⬅ Home`}</span></Link>

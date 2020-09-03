@@ -4,6 +4,7 @@ import { useLazyQuery } from '@apollo/client';
 import ArtistCard from '../components/ArtistCard';
 import { queries } from '../queries';
 import { useDebounce } from '../utilites/debounce';
+import Loader from '../components/Loader';
 
 
 function ArtistsList({ query }) {
@@ -66,7 +67,7 @@ function ArtistsList({ query }) {
         })}
     </div>
 
-        {loading && (<div>loading...</div>)}
+        {loading && (<Loader/>)}
         {data?.search?.artists?.pageInfo.hasNextPage &&
         !loading && (<div ref={setLoadingElement} className="text-center" >Loding more...</div>)}
 
@@ -77,25 +78,23 @@ function ArtistsList({ query }) {
 
 function Home() {
 
-    const [artistquery, setArtistQuery] = useState('Nirvana');
+    const [artistquery, setArtistQuery] = useState('');
 
 
     return (
         <div className="w-full">
-               <div className="bg-black flex justify-center" >
+               <div className="bg-black p-12 flex justify-center" >
                         <img className="w-full sm:w-1/2" src={require('../assets/logoscfinder.png')} alt=""/>
                     </div>
                     <div className="w-full flex justify-center">
             <div className="container p-6">
-                <div>
-                    {/* <h1 className="text-6xl text-purple-600"> Search Artists by Name </h1> */}
-                 
+                <div>               
                     <input
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         type="text" placeholder="Search Artists..." onChange={e => setArtistQuery(e.target.value)} />
                 </div>
                 <div style={{ marginTop: '2rem' }}  >
-                    {artistquery.length < 3 ? (<div> Looking for artists...</div>) : <ArtistsList query={artistquery} />}
+                    {artistquery.length < 3 ? (<div> Find Your Artist by Searching thier Name</div>) : <ArtistsList query={artistquery} />}
                 </div>
             </div>
             </div>

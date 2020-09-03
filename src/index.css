@@ -39,3 +39,7 @@ background-position: center center;
 
 background-position: center center;
 }
+
+.loader-sc {
+  margin: auto; background: none; display: block; shape-rendering: auto;
+}
