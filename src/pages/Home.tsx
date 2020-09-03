@@ -13,7 +13,7 @@ function ArtistsList({ query }) {
     const [pageInfo, setPageInfo] = useState({ hasNextPage: true, endCursor: '' });
     const [artists, setArtists] = useState<any>([]);
     const [loadMore, { loading, error, data }] = useLazyQuery(queries.ARTISTS, {
-        variables: { query: debounceSearch, cursor: "" },
+        variables: { query: debounceSearch, cursor: "" ,first:9},
         onCompleted: (d) => {
             let arr = artists.concat(d?.search?.artists?.nodes)
             setArtists(arr)
@@ -26,7 +26,7 @@ function ArtistsList({ query }) {
         const first = entires[0];
         const info = pageInfoRef.current;
         if (first.isIntersecting && info.hasNextPage) {
-            loadMore({ variables: { query: debounceSearch, cursor: info.endCursor } })
+            loadMore({ variables: { query: debounceSearch, cursor: info.endCursor,first:6 } })
         }
     }, { threshold: 1 }));
 
@@ -37,7 +37,7 @@ function ArtistsList({ query }) {
     }, [pageInfo])
     useEffect(() => {
         setArtists([])
-        loadMore({ variables: { query: debounceSearch, cursor: '' } })
+        loadMore({ variables: { query: debounceSearch, cursor: '', first:9 } })
     }, [debounceSearch])
 
     useEffect(() => {
@@ -91,10 +91,10 @@ function Home() {
                 <div>               
                     <input
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        type="text" placeholder="Search Artists..." onChange={e => setArtistQuery(e.target.value)} />
+                        type="text" placeholder="Search Artists..." onChange={e => setArtistQuery(e.target.value.trim())} />
                 </div>
                 <div style={{ marginTop: '2rem' }}  >
-                    {artistquery.length < 3 ? (<div> Find Your Artist by Searching thier Name</div>) : <ArtistsList query={artistquery} />}
+                    {artistquery.length < 1 ? (<div> Find Your Artist by Searching thier Name</div>) : <ArtistsList query={artistquery} />}
                 </div>
             </div>
             </div>

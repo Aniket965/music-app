@@ -1,9 +1,9 @@
 import { gql } from '@apollo/client';
 
 const ARTISTS = gql`
-query getArtists($query: String!, $cursor: String!) {
+query getArtists($query: String!,$first: Int!, $cursor: String!) {
     search {
-      artists(query: $query,first:9,after: $cursor) {
+      artists(query: $query,first:$first,after: $cursor) {
         nodes {
           id
           mbid
