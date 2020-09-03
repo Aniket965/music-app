@@ -1,0 +1,33 @@
+[debug] [2020-09-03T10:20:34.419Z] ----------------------------------------------------------------------
+[debug] [2020-09-03T10:20:34.422Z] Command:       /Users/aniketsharma/.nvm/versions/node/v12.16.3/bin/node /usr/local/bin/firebase deploy
+[debug] [2020-09-03T10:20:34.422Z] CLI Version:   8.2.0
+[debug] [2020-09-03T10:20:34.422Z] Platform:      darwin
+[debug] [2020-09-03T10:20:34.422Z] Node Version:  v12.16.3
+[debug] [2020-09-03T10:20:34.423Z] Time:          Thu Sep 03 2020 15:50:34 GMT+0530 (India Standard Time)
+[debug] [2020-09-03T10:20:34.423Z] ----------------------------------------------------------------------
+[debug] [2020-09-03T10:20:34.423Z] 
+[debug] [2020-09-03T10:20:34.435Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-09-03T10:20:34.436Z] > authorizing via signed-in user
+[debug] [2020-09-03T10:20:34.436Z] [iam] checking project artistfindersc for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-09-03T10:20:34.438Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/artistfindersc:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-09-03T10:20:36.086Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 03 Sep 2020 10:20:36 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1336","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-09-03T10:20:36.088Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/artistfindersc  
+ 
+[debug] [2020-09-03T10:20:36.598Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 03 Sep 2020 10:20:36 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'artistfindersc'...
+[info] 
+[info] i  deploying hosting
+[debug] [2020-09-03T10:20:36.605Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/artistfindersc/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2020-09-03T10:20:38.643Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 03 Sep 2020 10:20:38 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[artistfindersc]: beginning deploy...
+[info] i  hosting[artistfindersc]: found 42 files in build
+[debug] [2020-09-03T10:20:38.948Z] [hosting] hash cache [YnVpbGQ] stored for 42 files
+[debug] [2020-09-03T10:20:38.948Z] [hosting][hash queue][FINAL] {"max":269,"min":28,"avg":38.023809523809526,"active":0,"complete":42,"success":42,"errored":0,"retried":0,"total":42,"elapsed":283}
+[debug] [2020-09-03T10:20:38.949Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/artistfindersc/versions/43efce50017983d4:populateFiles  
+ <request body omitted>
+[debug] [2020-09-03T10:20:40.794Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 03 Sep 2020 10:20:40 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-09-03T10:20:40.868Z] [hosting][populate queue][FINAL] {"max":1848,"min":1848,"avg":1848,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1921}
+[debug] [2020-09-03T10:20:40.869Z] [hosting] uploads queued: 26
