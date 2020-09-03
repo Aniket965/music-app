@@ -34,16 +34,16 @@ function Artist() {
 
 
     if (loading) return (
-        <div className="w-full ml-4" >
-            <div className="bg-purple-900 p-2 w-full text-white text-left text-md font-bold" >
+        <div className="w-full" >
+            <div className="bg-black pl-12 p-2 w-full text-white text-left text-md font-bold" >
                 <Link to="/" ><span className="cursor-pointer">{`⬅ Home`}</span></Link>
             </div>
             <div>Loading...</div>
         </div>
     );
     if (error) return (
-        <div className="w-full ml-4" >
-            <div className="bg-purple-900 p-2 w-full text-white text-left text-md font-bold"
+        <div className="w-full" >
+            <div className="bg-black pl-12 p-2 w-full text-white text-left text-md font-bold"
              >
                 <Link to="/" ><span className="cursor-pointer">{`⬅ Home`}</span></Link>
             </div>
@@ -80,7 +80,7 @@ function Artist() {
                                         autoDismiss: true,
                                       })
                                 }
-                                else {addArtist({ name: data?.lookup.artist.name, mbid: id })
+                                else {addArtist({ name: data?.lookup.artist.name, mbid: id,country:data?.lookup.artist.country })
                             
                             
                                 addToast(`Added ${data?.lookup.artist.name} to favorites`, {

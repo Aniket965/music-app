@@ -81,10 +81,15 @@ function Home() {
 
 
     return (
-        <div className="w-full flex justify-center">
+        <div className="w-full">
+               <div className="bg-black flex justify-center" >
+                        <img className="w-full sm:w-1/2" src={require('../assets/logoscfinder.png')} alt=""/>
+                    </div>
+                    <div className="w-full flex justify-center">
             <div className="container p-6">
                 <div>
-                    <h1 className="text-6xl text-purple-600"> Search Artists by Name </h1>
+                    {/* <h1 className="text-6xl text-purple-600"> Search Artists by Name </h1> */}
+                 
                     <input
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         type="text" placeholder="Search Artists..." onChange={e => setArtistQuery(e.target.value)} />
@@ -92,6 +97,7 @@ function Home() {
                 <div style={{ marginTop: '2rem' }}  >
                     {artistquery.length < 3 ? (<div> Looking for artists...</div>) : <ArtistsList query={artistquery} />}
                 </div>
+            </div>
             </div>
         </div>
     );
