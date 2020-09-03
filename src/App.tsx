@@ -14,6 +14,7 @@ import {
 } from "react-router-dom";
 import SideBar from './components/SideBar';
 import { ToastProvider } from 'react-toast-notifications'
+import NotFound from './pages/NotFound';
 
 
 
@@ -21,24 +22,26 @@ function App() {
   return (
     <div className="App flex relative">
       <ToastProvider>
-      <ApolloProvider client={client}>
-        <StoreProvider store={store} >
-          <Router>
-            <SideBar />
-            <div className="w-full overflow-x-hidden" >
-              <Switch>
-                <Route path="/artists/:id">
-                  <Artist />
-                </Route>
-                <Route path="/">
-                  <Home />
-                </Route>
-
-              </Switch>
-            </div>
-          </Router>
-        </StoreProvider>
-      </ApolloProvider>
+        <ApolloProvider client={client}>
+          <StoreProvider store={store} >
+            <Router>
+              <SideBar />
+              <div className="w-full overflow-x-hidden" >
+                <Switch>
+                  <Route path="/artists/:id">
+                    <Artist />
+                  </Route>
+                  <Route exact path="/">
+                    <Home />
+                  </Route>
+                  <Route path="*">
+                    <NotFound />
+                  </Route>
+                </Switch>
+              </div>
+            </Router>
+          </StoreProvider>
+        </ApolloProvider>
       </ToastProvider>
     </div>
   );
